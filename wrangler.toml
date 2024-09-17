@@ -1,0 +1,14 @@
+name = "xiaobot-scraper"
+type = "webpack"
+account_id = "your_account_id"
+workers_dev = true
+route = ""
+zone_id = ""
+compatibility_date = "2023-05-18"
+
+[vars]
+NOTION_TOKEN = "your_notion_token"
+NOTION_DATABASE_ID = "your_notion_database_id"
+
+[triggers]
+crons = ["0 15 * * *"]
