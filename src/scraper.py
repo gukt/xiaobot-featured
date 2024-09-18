@@ -50,7 +50,9 @@ def get_commission_rate(driver):
 
 def get_tags_and_author(driver):
     # 获取标签列表，如果找不到 tags, 就点击 category_elem 下的第二个元素
-    category_elem = driver.find_element(By.CSS_SELECTOR, "div.category")
+    category_elem = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "div.category"))
+    )
     if not driver.find_elements(By.CSS_SELECTOR, "span.tag"):
         category_elem.find_elements(By.CSS_SELECTOR, "div")[1].click()
 
@@ -96,15 +98,21 @@ def scrape_xiaobot(author_id):
         icon = icon_elem.get_attribute("src")
 
         # 获取阅读人数
-        reader_count_elem = driver.find_element(By.CSS_SELECTOR, ".paper-info .stats div.stat:nth-child(1) .num")
+        reader_count_elem = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".paper-info .stats div.stat:nth-child(1) .num"))
+        )
         reader_count = reader_count_elem.text
 
         # 获取文章数
-        article_count_elem = driver.find_element(By.CSS_SELECTOR, ".paper-info .stats div.stat:nth-child(2) .num")
+        article_count_elem = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".paper-info .stats div.stat:nth-child(2) .num"))
+        )
         article_count = article_count_elem.text
 
         # 获取描述
-        intro_elem = driver.find_element(By.CSS_SELECTOR, ".paper-info p.intro")
+        intro_elem = WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, ".paper-info p.intro"))
+        )
         intro = intro_elem.text
 
         # 获取标签列表以及主理人信息
