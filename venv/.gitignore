@@ -1,4 +1,0 @@
-# 忽略 venv 目录中的所有内容
-*
-# 不忽略 .gitignore 文件本身
-!.gitignore
