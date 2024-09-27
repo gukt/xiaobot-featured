@@ -1,3 +1,4 @@
 notion_client==2.2.1
 selenium==4.24.0
 webdriver_manager==4.0.2
+socksio==1.0.0

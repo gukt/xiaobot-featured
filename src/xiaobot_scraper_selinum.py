@@ -88,6 +88,7 @@ def get_tags_and_author_and_last_update(driver):
     else:
         last_update_elem = posts[0].find_element(By.CSS_SELECTOR, ".date")
     last_update = last_update_elem.text # '2024/01/02'
+    last_update = last_update if last_update else None
     # # 转换为 date 类型
     # NOTE：这里转换为 datetime 后，json 序列化时出错，所以保持字符串格式
     # last_update = datetime.strptime(last_update, '%Y/%m/%d').date() if last_update else None
